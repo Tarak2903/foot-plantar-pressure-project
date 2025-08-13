@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import Navbar from '@/Components/Navbar'
 import Footer from '@/Components/Footer'
+import { startSession } from '@/app/lib/auth-actions'
+
 import { ToastContainer, toast } from 'react-toastify';
 const Page = () => {
   const [email, setemail] = useState('')
@@ -37,6 +39,7 @@ const Page = () => {
         theme: "light",
 
       });
+        await startSession(email)
     }
     else {
       toast('User already exists', {
